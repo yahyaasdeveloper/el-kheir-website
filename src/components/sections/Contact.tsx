@@ -5,6 +5,19 @@ import { MessageCircle, Mail, Phone, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Contact() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const firstName = formData.get('firstName');
+    const lastName = formData.get('lastName');
+    const email = formData.get('email');
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+    
+    const mailtoLink = `mailto:yahyasidahmedofficial@gmail.com?subject=${encodeURIComponent(subject as string || 'Nouveau message de contact')}&body=${encodeURIComponent(`De: ${firstName} ${lastName}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <section id="contact" className="py-20 md:py-28 bg-white">
       <div className="container mx-auto px-4 md:px-6">
@@ -80,7 +93,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-display font-bold text-xl mb-1 text-dark">Email</h4>
-                  <p className="text-gray-600">contact@elkheir.com</p>
+                  <p className="text-gray-600">yahyasidahmedofficial@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -93,31 +106,31 @@ export function Contact() {
             className="bg-accent/30 rounded-2xl p-8"
           >
             <h3 className="text-2xl font-display font-bold text-dark mb-6">Envoyez un message</h3>
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-dark/80">Prénom</label>
-                  <input type="text" className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Votre prénom" />
+                  <input type="text" name="firstName" required className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Votre prénom" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-medium text-dark/80">Nom</label>
-                  <input type="text" className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Votre nom" />
+                  <input type="text" name="lastName" required className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Votre nom" />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-medium text-dark/80">Email</label>
-                <input type="email" className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="votre@email.com" />
+                <input type="email" name="email" required className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="votre@email.com" />
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-medium text-dark/80">Sujet</label>
-                <input type="text" className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Demande de devis..." />
+                <input type="text" name="subject" required className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Demande de devis..." />
               </div>
 
               <div className="space-y-2">
                 <label className="text-sm font-medium text-dark/80">Message</label>
-                <textarea className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all min-h-[120px] resize-none" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                <textarea name="message" required className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all min-h-[120px] resize-none" placeholder="Comment pouvons-nous vous aider ?"></textarea>
               </div>
 
               <Button type="submit" size="lg" className="w-full mt-2 gap-2 h-14 text-base">
