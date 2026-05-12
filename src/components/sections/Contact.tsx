@@ -8,9 +8,9 @@ export function Contact() {
   return (
     <section id="contact" className="py-20 md:py-28 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        
+
         {/* CTA Banner */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -21,16 +21,25 @@ export function Contact() {
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 leading-tight">
               Besoin de produits alimentaires de qualité ? Contactez El Kheir dès aujourd’hui !
             </h2>
-            <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 border-none rounded-full h-14 px-8 text-lg mt-4 shadow-lg shadow-[#25D366]/20">
-              <MessageCircle className="w-6 h-6" />
-              Discuter sur WhatsApp
-            </Button>
+            <a
+              href="https://wa.me/22242036005"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                size="lg"
+                className="bg-[#25D366] hover:bg-[#20bd5a] text-white gap-2 border-none rounded-full h-14 px-8 text-lg mt-4 shadow-lg shadow-[#25D366]/20"
+              >
+                <MessageCircle className="w-6 h-6" />
+                Discuter sur WhatsApp
+              </Button>
+            </a>
           </div>
         </motion.div>
 
         {/* Contact Form & Info */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          
+
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -50,18 +59,18 @@ export function Contact() {
                 </div>
                 <div>
                   <h4 className="font-display font-bold text-xl mb-1 text-dark">Notre Adresse</h4>
-                  <p className="text-gray-600">123 Zone Industrielle, Avenue des Commerces, Ville</p>
+                  <p className="text-gray-600">Nouakchott, Mauritania</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
                   <Phone className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h4 className="font-display font-bold text-xl mb-1 text-dark">Téléphone</h4>
-                  <p className="text-gray-600">+212 500 000 000</p>
-                  <p className="text-gray-600">+212 600 000 000 (WhatsApp)</p>
+                  <p className="text-gray-600">+222 42 03 60 05</p>
+                  <p className="text-gray-600">+222 42 03 60 05 (WhatsApp)</p>
                 </div>
               </div>
 
@@ -95,7 +104,7 @@ export function Contact() {
                   <input type="text" className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="Votre nom" />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <label className="text-sm font-medium text-dark/80">Email</label>
                 <input type="email" className="w-full h-12 px-4 rounded-lg border border-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" placeholder="votre@email.com" />
@@ -121,20 +130,20 @@ export function Contact() {
         </div>
 
         {/* Google Maps Map */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mt-16 rounded-2xl overflow-hidden h-[400px] bg-gray-100 shadow-inner"
         >
           {/* Using a placeholder iframe for Maps, ideally should be a real location */}
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10500.56930818274!2d2.3429312217730873!3d48.85590924962292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C%20France!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }} 
-            allowFullScreen={false} 
-            loading="lazy" 
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10500.56930818274!2d2.3429312217730873!3d48.85590924962292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2sParis%2C%20France!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen={false}
+            loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </motion.div>
